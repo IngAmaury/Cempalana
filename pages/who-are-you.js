@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function WhoAreYou() {
   return (
-    <div className="flex justify-center items-center w-full h-screen m-0 p-0 bg-gradient-to-r from-indigo-500 to-indigo-700">
+    <div className="flex justify-center items-center w-screen h-screen m-0 p-0 bg-gradient-to-r from-indigo-500 to-indigo-700">
       <div className="w-1/2 p-6 bg-white round-lg">
         <h1 className="text-center text-4xl mb-4">¿Quién eres?</h1>
         <div className="block">
