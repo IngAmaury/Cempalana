@@ -1,0 +1,13 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#cover {
+  background-image: url("../public/cover.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
