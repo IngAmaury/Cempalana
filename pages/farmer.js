@@ -1,4 +1,5 @@
-import React, { Link, useState } from "react";
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 
 export default function Farmer() {
   const [seedName, setSeedName] = useState("");
@@ -6,6 +7,19 @@ export default function Farmer() {
   const [name, setName] = useState("");
   const [farmName, setFarmName] = useState("");
   const [farmAddress, setFarmAddress] = useState("");
+
+  useEffect(() => {
+    const onLoad = async () => {
+      Cookies.set("userType", "farmer");
+    };
+
+    if (document.readyState === "complete") {
+      onLoad();
+    } else {
+      window.addEventListener("load", onLoad);
+      return () => window.removeEventListener("load", onLoad);
+    }
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();

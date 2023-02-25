@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 
 export default function Client() {
   const [productID] = useState("");
@@ -7,6 +8,19 @@ export default function Client() {
     e.preventDefault();
     console.log("Form submitted");
   };
+
+  useEffect(() => {
+    const onLoad = async () => {
+      Cookies.set("userType", "client");
+    };
+
+    if (document.readyState === "complete") {
+      onLoad();
+    } else {
+      window.addEventListener("load", onLoad);
+      return () => window.removeEventListener("load", onLoad);
+    }
+  });
 
   return (
     <div className="w-screen h-screen m-0 p-0" id="cover">
@@ -29,7 +43,7 @@ export default function Client() {
                 className="bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
-                Registrar producto
+                Verificar producto
               </button>
             </div>
           </form>

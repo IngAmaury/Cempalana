@@ -1,7 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 export default function WhoAreYou() {
+  const [userType] = useState(Cookies.get("userType"));
+  const router = useRouter();
+
+  useEffect(() => {
+    const onLoad = async () => {
+      const type = await verifyUserType();
+      Cookies.set("userType", type);
+    };
+
+    if (document.readyState === "complete") {
+      onLoad();
+    } else {
+      window.addEventListener("load", onLoad);
+      return () => window.removeEventListener("load", onLoad);
+    }
+
+    if (userType && userType == "farmer") {
+      router.push("/farmer");
+    }
+
+    if (userType && userType == "client") {
+      router.push("/client");
+    }
+
+    if (!userType) {
+      router.push("/who-are-you");
+    }
+  });
+
+  const verifyUserType = async () => {
+    const type = Cookies.get("userType");
+
+    return type;
+  };
+
   return (
     <div className="flex justify-center items-center w-screen h-screen m-0 p-0 bg-gradient-to-r from-indigo-500 to-indigo-700">
       <div className="w-1/2 p-6 bg-white round-lg">
