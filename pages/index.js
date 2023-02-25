@@ -1,3 +1,6 @@
+import Link from 'next/link';
+
+
 export default function Home() {
   return (
     <div className="w-screen h-screen m-0 p-0" id="cover">
@@ -6,6 +9,7 @@ export default function Home() {
           <h1 className="text-7xl mb-6">Cempalana</h1>
           <p className="text-white text-bold text-3xl">
             Conectando identidades con tecnología y el espiritu del Cempazuchitl patricio
+            My Account <Link href="/Post/Chido2">this page!</Link>
           </p>
         </div>
       </div>
