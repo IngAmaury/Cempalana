@@ -1,0 +1,24 @@
+import React from "react";
+import Link from "next/link";
+
+export default function WhoAreYou() {
+  return (
+    <div className="flex justify-center items-center w-screen h-screen m-0 p-0 bg-gradient-to-r from-indigo-500 to-indigo-700">
+      <div className="w-1/2 p-6 bg-white round-lg">
+        <h1 className="text-center text-4xl mb-4">¿Quién eres?</h1>
+        <div className="block">
+          <Link href="/farmer">
+            <button className="p-5 mt-6 text-3xl text-bold mb-6 bg-green-400 md:w-50 w-full text-white">
+              Soy Agricultor
+            </button>
+          </Link>
+          <Link href="/client">
+            <button className="p-5 text-3xl tex-bold bg-orange-400 md:w-50 w-full text-white">
+              Soy Cliente
+            </button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
